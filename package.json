@@ -1,4 +1,25 @@
 {
   "name": "md-links",
-  "version": "0.1.0"
+  "version": "0.1.0",
+  "description": "## Preámbulo",
+  "main": "index.js",
+  "directories": {
+    "test": "jest"
+  },
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/elenore29/CDMX007-fe-md-links.git"
+  },
+  "author": "Elenore Elisa Espinosa Nava",
+  "license": "ISC",
+  "bin": {
+    "md": "./cli.js"
+  }, 
+  "bugs": {
+    "url": "https://github.com/elenore29/CDMX007-fe-md-links/issues"
+  },
+  "homepage": "https://github.com/elenore29/CDMX007-fe-md-links#readme"
 }
