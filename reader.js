@@ -1,48 +1,17 @@
-//Función  para leer archivos de forma asincrona
-const readMD = ()=> {
-    const fs = require('fs'); 
-    fs.readFile('./README.md', (err, data) => { 
-        if (err){
-        console.log('Error')
-        } 
-        else {
-            const hola = data.toString();
-            console.log(hola); 
-            const salto = ('\n')  
-            const split1 = hola.split(salto).length;
-            console.log(split1); 
-        }
-     })
+const fs = require('fs');
+//Función para leer los archivos pasandole el resultado de la función de findMD
+const readMD = (path) => {
+  const newPromise = new Promise((resolve, reject) => {
+    fs.readFile(`./${path}`, (err, data) => {
+      if (err) {
+        console.log(err)
+        reject(err);
+      } else {
+        resolve(data);
+      }
+    })
+  })
+  return newPromise;
 }
-module.exports = readMD(); 
 
-// //Función  para leer archivos de forma asincrona
-
-// const readMD = async (direccion)=> {
-//     const direccion = require('./search'); 
-
-
-//     const fs = require('fs'); 
-//     let newPromise = new Promise((resolve, reject) => {
-//     fs.readFile(direccion, (err, data) => { 
-//         if (err){
-//         console.log('Error')
-//         reject();
-//         } 
-//         else {
-//             const hola = data.toString();
-//             // console.log(hola); 
-//             const salto = ('\n')  
-//             const split1 = hola.split(salto).length;
-//             // console.log(split1); 
-//         }
-//         resolve();
-//      })
-// })
-// const result = await newPromise;
-// return result
-// }
-
-// readMD().then(arr => console.log(arr))
-
-// module.exports = readMD(); 
+module.exports = readMD;
