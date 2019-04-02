@@ -1,4 +1,3 @@
 #!/usr/bin/env node
-const readMD = require('./reader');
-const findMD = require('./search'); 
+const readMD = require('./imports');
 

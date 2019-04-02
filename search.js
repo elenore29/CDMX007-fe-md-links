@@ -1,12 +1,13 @@
-//Función  para encontrar archivos de forma asincrona
+const fs = require('fs');
+//Función  para encontrar archivos de forma asincróna
 const findMD = async () => {
-  const fs = require('fs');
+  console.info('ejecutando');
   const newArray = [];
   let newPromise = new Promise((resolve, reject) => {
     fs.readdir('./', (err, data) => {
       if (err) {
         console.log('Error')
-        reject();
+        reject(err);
       } else {
         const allFiles = data;
         for (let i = 0; i < allFiles.length; i++) {
@@ -19,13 +20,10 @@ const findMD = async () => {
       };
     });
   });
-
   const result = await newPromise;
   return result
-
 };
 
-findMD().then(arr => console.log(arr))
+//findMD().then(arr => console.log(arr))
 
-
-module.exports = findMD();
+module.exports = findMD;
