@@ -1,11 +1,12 @@
 const findMD = require('./search');
 const readMD = require('./reader');
-const countLines = require('./lines'); 
+const dataToString = require('./lines'); 
+const findUrls = require('./finder'); 
 
-//Usando promesa para mostrar el contenido de los archivos
+//Usando promesa para mostrar los links de los archivos
 findMD().then((result)=>{
     result.forEach(element => {
-        readMD(element).then(countLines);
+        readMD(element).then(dataToString).then(findUrls);
     });
 }); 
 

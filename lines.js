@@ -1,9 +1,9 @@
-const countLines = (data) => {
+const dataToString = (data) => {
   const arrayToString = data.toString();
-  console.log(arrayToString);
-  const newLine = ('\n')
-  const splitArray = arrayToString.split(newLine).length;
-  console.log(splitArray);
+  return arrayToString;
+  // const newLine = ('\n')
+  // const splitArray = arrayToString.split(newLine).length;
+  // // console.log(splitArray);
 }
 
-module.exports = countLines;
+module.exports = dataToString;
