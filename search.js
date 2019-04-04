@@ -1,5 +1,5 @@
 const fs = require('fs');
-const path = require('path'); 
+const path = require('path');
 //Función  para encontrar archivos de forma asincróna
 const findMD = async () => {
   const newArray = [];
@@ -13,7 +13,7 @@ const findMD = async () => {
         for (let i = 0; i < allFiles.length; i++) {
 
           if (allFiles[i].match(/.md$/gm)) {
-          const path2 = path.resolve(allFiles[i])
+            const path2 = path.resolve(allFiles[i])
             newArray.push(path2);
           }
         }
@@ -22,7 +22,7 @@ const findMD = async () => {
     });
   });
   const result = await newPromise;
-  return result 
+  return result
 };
 
 module.exports = findMD;
