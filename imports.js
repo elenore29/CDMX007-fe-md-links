@@ -1,15 +1,14 @@
 // const findMD = require('./search');
-const transformedPath = require('./userPath');
-const readMD = require('./reader');
-const findUrls = require('./finder');
+const userPath = require('./userPath');
+const readMD = require('./readMD');
+const findUrls = require('./findUrls');
 const validateUrl = require('./validate');
 
 //Usando promesa para mostrar los links de los archivos
-transformedPath(process.argv[2]).then((result) => {
-  result.forEach(element => {
+userPath(process.argv[2]).then((result) => {
+  result.forEach(element => { 
     readMD(element)
       .then(findUrls)
-      .catch(err => (err))
       .then(validateUrl)
       .catch(err => (err))
   });

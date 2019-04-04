@@ -1,7 +1,8 @@
 const path = require('path');
 const fileArray = [];
 
-const transformedPath = (file) => {
+const userPath = (file) => {
+
   const newPromise = new Promise((resolve, reject, err) => {
     if (err) {
       console.log('Error')
@@ -16,4 +17,4 @@ const transformedPath = (file) => {
   return newPromise
 }
 
-module.exports = transformedPath;
+module.exports = userPath;

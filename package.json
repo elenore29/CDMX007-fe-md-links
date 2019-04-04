@@ -4,10 +4,10 @@
   "description": "## Preámbulo",
   "main": "index.js",
   "directories": {
-    "test": "jest --coverage"
+    "test": "jest"
   },
   "scripts": {
-    "test": "jest"
+    "test": "jest --coverage"
   },
   "repository": {
     "type": "git",

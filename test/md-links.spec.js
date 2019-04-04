@@ -22,7 +22,7 @@ describe('transformedPath should be a function', () => {
   });
 })
 
-const readMD = require('../reader');
+const readMD = require('../readMD');
 describe('readMD', () => {
   it('readMD should be a function', () => {
     expect(typeof readMD).toBe('function');
@@ -34,7 +34,7 @@ describe('readMD', () => {
   });
 })
 
-const findUrls = require('../finder');
+const findUrls = require('../findUrls');
 describe('findUrls', () => {
   it('readMD should be a function', () => {
     expect(typeof findUrls).toBe('function');
@@ -52,5 +52,12 @@ describe('validateUrl', () => {
   it('validateUrl should be a function', () => {
     expect(typeof validateUrl).toBe('function');
   });
+ it('Should return the link with its status', async () => {
+    const findUrl = ["https://developer.mozilla.org/es/docs/Web/JavaScript/Guide/Regular_Expressions"]
+    const loquesea = await validateUrl(findUrl);
+    expect(loquesea).toEqual(["status 200 https://developer.mozilla.org/es/docs/Web/JavaScript/Guide/Regular_Expressions"]);
+  });
  
 })
+
+
