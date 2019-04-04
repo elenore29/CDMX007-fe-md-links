@@ -1,22 +1,19 @@
 // const findMD = require('./search');
-const changePath = require('./userPath'); 
+const transformedPath = require('./userPath');
 const readMD = require('./reader');
-const dataToString = require('./lines'); 
-const findUrls = require('./finder'); 
-const validateUrl = require('./get'); 
+const findUrls = require('./finder');
+const validateUrl = require('./validate');
 
 //Usando promesa para mostrar los links de los archivos
-changePath().then((result)=>{
-    result.forEach(element => {
-        readMD(element)
-        .then(dataToString)
-        .catch(err => (err))
-        .then(findUrls)
-        .catch(err => (err))
-        .then(validateUrl)
-        .catch(err => (err))
-    });
-}); 
+transformedPath(process.argv[2]).then((result) => {
+  result.forEach(element => {
+    readMD(element)
+      .then(findUrls)
+      .catch(err => (err))
+      .then(validateUrl)
+      .catch(err => (err))
+  });
+});
 
 // //Usando async y await
 // const mdLinks = async () => {

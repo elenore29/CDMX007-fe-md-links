@@ -4,7 +4,7 @@
   "description": "## Preámbulo",
   "main": "index.js",
   "directories": {
-    "test": "jest"
+    "test": "jest --coverage"
   },
   "scripts": {
     "test": "jest"
