@@ -1,10 +1,12 @@
-const findMD = require('./search');
+// const findMD = require('./search');
+const changePath = require('./userPath'); 
 const readMD = require('./reader');
 const dataToString = require('./lines'); 
 const findUrls = require('./finder'); 
 const validateUrl = require('./get'); 
+
 //Usando promesa para mostrar los links de los archivos
-findMD().then((result)=>{
+changePath().then((result)=>{
     result.forEach(element => {
         readMD(element)
         .then(dataToString)
