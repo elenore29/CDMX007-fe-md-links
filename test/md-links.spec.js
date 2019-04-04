@@ -1,17 +1,10 @@
-const mdLinks = require('./reader.js');
+const findMD = require('../search');
 
-
-// describe('mdLinks', () => {
-
-//   it('should...', () => {
-//     console.log('FIX ME!');
-//   });
-
-// });
-
-
-describe('readMD', () => {
+describe('findMD', () => {
   it('is a function', () => {
-    expect(typeof readMD).toBe('function');
-  });
+    expect(typeof findMD).toBe('function');
+  }); 
+  it('The result is README.md', () => {
+    expect(result, 'README.md').toEqual('README.md');
+  }); 
 })
