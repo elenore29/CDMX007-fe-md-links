@@ -366,7 +366,7 @@ si tienes dudas existenciales con respecto a estas decisiones. No existe una
 
 ### CLI
 
-- [ ] Expone ejecutable `md-links` en el path (configurado en `package.json`)
+- [x] Expone ejecutable `md-links` en el path (configurado en `package.json`)
 - [ ] Se ejecuta sin errores / output esperado
 - [ ] Implementa `--validate`
 - [ ] Implementa `--stats`
