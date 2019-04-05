@@ -3,6 +3,7 @@ const userPath = require('./userPath');
 const readMD = require('./readMD');
 const findUrls = require('./findUrls');
 const validateUrl = require('./validate');
+const print = require('./print');
 
 //Usando promesa para mostrar los links de los archivos
 userPath(process.argv[2]).then((result) => {
@@ -10,17 +11,7 @@ userPath(process.argv[2]).then((result) => {
     readMD(element)
       .then(findUrls)
       .then(validateUrl)
+      .then(print)
       .catch(err => (err))
   });
 });
-
-// //Usando async y await
-// const mdLinks = async () => {
-//     const files = await findMD();
-//     files.forEach(async element => {
-//         const fileContent = await readMD(element);
-//         show(fileContent);
-//     })
-//  };
-// console.log(mdLinks);
-// mdLinks();
