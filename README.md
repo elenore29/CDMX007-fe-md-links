@@ -191,7 +191,7 @@ Por ejemplo:
 ```sh
 $ md-links ./some/example.md --validate
 ./some/example.md http://algo.com/2/3/ ok 200 Link a algo
-./some/example.md https://otra-cosa.net/algun-doc.html fail 404 algún doc
+./some/example.md https://elenore29.github.io/Portafo fail 404 algún doc
 ./some/example.md http://google.com/ ok 301 Google
 ```
 
