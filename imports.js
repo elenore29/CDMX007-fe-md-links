@@ -2,7 +2,7 @@
 const userPath = require('./userPath');
 const readMD = require('./readMD');
 const findUrls = require('./findUrls');
-const validateUrl = require('./validate');
+const validateUrl = require('./statusCode');
 const print = require('./print');
 
 //Usando promesa para mostrar los links de los archivos

@@ -47,7 +47,7 @@ describe('findUrls', () => {
 })
 
 
-const validateUrl = require('../validate');
+const validateUrl = require('../statusCode');
 describe('validateUrl', () => {
   it('validateUrl should be a function', () => {
     expect(typeof validateUrl).toBe('function');

@@ -1,6 +1,5 @@
 const https = require('https');
 const http = require('http');
-var colors = require('colors');
 
 const validateUrl = async (findUrl) => {
   const myPromise = new Promise((resolve, reject) => {
@@ -10,13 +9,13 @@ const validateUrl = async (findUrl) => {
     findUrl.forEach(element => {
       if (element.match(/(https:\/\/[^\s]+)/g)) {
         https.get(element, (res) => {
-          validateArr.push('status' + ' ' + res.statusCode + " " + element)
+          validateArr.push({status: res.statusCode, link: element})
           listo += 1;
           if (findUrl.length === listo) {
             resolve(validateArr);
           }
         }).on('error', (res) => {
-          validateArr.push('Not found' + ' ' + res.port + " " + element)
+          validateArr.push({status: res.statusCode, link: element})
           listo += 1;
           if (findUrl.length === listo) {
             resolve(validateArr);
@@ -24,20 +23,19 @@ const validateUrl = async (findUrl) => {
         });
       } else {
         http.get(element, (res) => {
-          validateArr.push('status' + ' ' + res.statusCode + " " + element)
+          validateArr.push({status: res.statusCode, link: element})
           listo += 1;
           if (findUrl.length === listo) {
             resolve(validateArr);
           }
         }).on('error', (res) => {
-          validateArr.push('Not found' + ' ' + res.port + " " + element)
+          validateArr.push({status: res.statusCode, link: element})
           listo += 1;
           if (findUrl.length === listo) {
             resolve(validateArr);
           }
         });
       }
-      //for
     });
   })
   const result = await myPromise;
