@@ -14,4 +14,3 @@ const readMD = (path) => {
 }
 
 module.exports = readMD;
-
