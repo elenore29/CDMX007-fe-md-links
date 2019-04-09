@@ -6,7 +6,6 @@ const findMD = async () => {
   const newPromise = new Promise((resolve, reject) => {
     fs.readdir('./', (err, data) => {
       if (err) {
-        console.log('Error')
         reject(err);
       } else {
         const allFiles = data;
