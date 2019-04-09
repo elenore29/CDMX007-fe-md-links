@@ -18,7 +18,7 @@
   "author": "Elenore Elisa Espinosa Nava",
   "license": "ISC",
   "bin": {
-    "md": "./cli.js"
+    "md-links": "./cli.js"
   },
   "bugs": {
     "url": "https://github.com/elenore29/CDMX007-fe-md-links/issues"
