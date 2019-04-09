@@ -1,5 +1,4 @@
 const findMD = require('../search');
-
 describe('findMD', () => {
   it('findMD should be a function', () => {
     expect(typeof findMD).toBe('function');
@@ -11,7 +10,6 @@ describe('findMD', () => {
 })
 
 const transformedPath = require('../userPath');
-
 describe('transformedPath should be a function', () => {
   it('transformedPath should be function', () => {
     expect(typeof transformedPath).toBe('function');
@@ -46,7 +44,6 @@ describe('findUrls', () => {
   });
 })
 
-
 const validateUrl = require('../statusCode');
 describe('validateUrl', () => {
   it('validateUrl should be a function', () => {
@@ -54,10 +51,24 @@ describe('validateUrl', () => {
   });
  it('Should return the link with its status', async () => {
     const findUrl = ["https://developer.mozilla.org/es/docs/Web/JavaScript/Guide/Regular_Expressions"]
-    const loquesea = await validateUrl(findUrl);
-    expect(loquesea).toEqual(["status 200 https://developer.mozilla.org/es/docs/Web/JavaScript/Guide/Regular_Expressions"]);
+    const response = await validateUrl(findUrl);
+    expect(response).toEqual([{"link": "https://developer.mozilla.org/es/docs/Web/JavaScript/Guide/Regular_Expressions", "status": 200,}]);
   });
- 
+  it('Should return the link with its status', async () => {
+    const findUrl = ["https://otra-cosa.net/algun-doc.html"]
+    const response = await validateUrl(findUrl);
+    expect(response).toEqual([{"link": "https://otra-cosa.net/algun-doc.html", "status": undefined}]);
+  });
+  it('Should return the link with its status', async () => {
+    const findUrl = ["http://otra-cosa.net/algun-doc.html"]
+    const response = await validateUrl(findUrl);
+    expect(response).toEqual([{"link": "http://otra-cosa.net/algun-doc.html", "status": undefined}]);
+  });
+  it('Should return the link with its status', async () => {
+    const findUrl = ["http://algo.com/2/3/"]
+    const response = await validateUrl(findUrl);
+    expect(response).toEqual([{"link": "http://algo.com/2/3/", "status": 301}]);
+  });
 })
 
 

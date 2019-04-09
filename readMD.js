@@ -4,7 +4,6 @@ const readMD = (path) => {
   const newPromise = new Promise((resolve, reject) => {
     fs.readFile(`${path}`, 'utf-8', (err, data) => {
       if (err) {
-        console.log(err)
         reject(err);
       } else {
         resolve(data);
