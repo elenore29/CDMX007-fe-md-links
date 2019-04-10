@@ -1,5 +1,4 @@
-// const findMD = require('./search');
-const userPath = require('./userPath');
+const findMD = require('./search');
 const readMD = require('./readMD');
 const findUrls = require('./findUrls');
 const statusCode = require('./statusCode');
@@ -9,7 +8,7 @@ const path1 = process.argv[2];
 var colors = require('colors');
 
 if (process.argv[3] == '--validate'  && process.argv[4] == '--stats') {
-  userPath(path1).then((result) => {
+  findMD(path1).then((result) => {
     result.forEach(element => {
       readMD(element)
         .then(findUrls)
@@ -21,7 +20,7 @@ if (process.argv[3] == '--validate'  && process.argv[4] == '--stats') {
   });
  } 
 else if (process.argv[3] == '--validate') {
-  userPath(path1).then((result) => {
+  findMD(path1).then((result) => {
     result.forEach(element => {
       readMD(element)
         .then(findUrls)
@@ -30,11 +29,11 @@ else if (process.argv[3] == '--validate') {
         .catch(err => (err))
     });
   });
-} else if (process.argv[3] == '--validate'){
+} else if (process.argv[3] == '--stats'){
   console.log('ya')
 }
 else {
-  userPath(path1).then((result) => {
+  findMD(path1).then((result) => {
     result.forEach(element => {
       readMD(element)
         .then(findUrls)

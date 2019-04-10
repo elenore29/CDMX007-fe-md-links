@@ -3,21 +3,16 @@ describe('findMD', () => {
   it('findMD should be a function', () => {
     expect(typeof findMD).toBe('function');
   });
-  it('Should return an array with absolute paths of all .md files in the folder ./', async () => {
-    const result = await findMD('../.');
-    expect(result).toEqual(["/home/laboratoria164-am/Documentos/Laboratoria/CDMX007-fe-md-links/README.md", "/home/laboratoria164-am/Documentos/Laboratoria/CDMX007-fe-md-links/README2.md"]);
-  });
-})
-
-const transformedPath = require('../userPath');
-describe('transformedPath should be a function', () => {
-  it('transformedPath should be function', () => {
-    expect(typeof transformedPath).toBe('function');
-  });
-  it('Should return an array with an absolute path', async () => {
-    const newPromise = await transformedPath('../README2.md');
-    expect(newPromise).toEqual(["/home/laboratoria164-am/Documentos/Laboratoria/README2.md"]);
-  });
+  it('Should return an array with the absolute paths of all .md files in a folder if the usersPath is a folder', async ()=> {
+    const userPath = './'
+    const result = await findMD(userPath); 
+    expect(result).toEqual(['/home/laboratoria164-am/Documentos/Laboratoria/CDMX007-fe-md-links/README.md', '/home/laboratoria164-am/Documentos/Laboratoria/CDMX007-fe-md-links/README2.md'])
+  }); 
+  it('Should return an array with the absolute path of my .md file', async ()=> {
+    const userPath = './README.md'
+    const result = await findMD(userPath); 
+    expect(result).toEqual(['/home/laboratoria164-am/Documentos/Laboratoria/CDMX007-fe-md-links/README.md'])
+  }); 
 })
 
 const readMD = require('../readMD');

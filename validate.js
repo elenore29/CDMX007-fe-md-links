@@ -8,8 +8,6 @@ const validateUrls = async (result) => {
       if (element.status >= 400) {
         console.log(colors.red(element.status + ' ' + element.link + ' fail'))
         counterFail++;
-
-
       } else {
         console.log(colors.blue(element.status + ' ' + element.link + ' ok'))
       }
@@ -18,7 +16,6 @@ const validateUrls = async (result) => {
     resolve(counterFail)
     const total = result.length
     console.log('Total: ' + total)
-    return total
 })
   const counterResult = await myPromise;
   return counterResult
