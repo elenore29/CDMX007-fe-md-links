@@ -33,4 +33,3 @@ const findMD = (userPath) => {
       };
 
       module.exports = findMD;
-
