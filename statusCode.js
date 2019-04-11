@@ -7,29 +7,31 @@ const validateUrl = async (findUrl) => {
     let counter = 0;
 
     findUrl.forEach(element => {
-      if (element.match(/(https:\/\/[^\s]+)/g)) {
-        https.get(element, (res) => {
-          validateArr.push({status: res.statusCode, link: element})
+      const url = element.url2.slice(1, -1);
+      const text = element.text2.slice(1, -1); 
+      if (url.match(/(https:\/\/[^\s]+)/g)) {
+        https.get(url, (res) => {
+          validateArr.push({text2: text, status: res.statusCode, link: url})
           counter += 1;
           if (findUrl.length === counter) {
             resolve(validateArr);
           }
         }).on('error', (res) => {
-          validateArr.push({status: res.statusCode, link: element})
+          validateArr.push({text2: text, status: res.statusCode, link: url})
           counter += 1;
           if (findUrl.length === counter) {
             resolve(validateArr);
           }
         });
       } else {
-        http.get(element, (res) => {
-          validateArr.push({status: res.statusCode, link: element})
+        http.get(url, (res) => {
+          validateArr.push({text2: text, status: res.statusCode, link: url})
           counter += 1;
           if (findUrl.length === counter) {
             resolve(validateArr);
           }
         }).on('error', (res) => {
-          validateArr.push({status: res.statusCode, link: element})
+          validateArr.push({text2: text, status: res.statusCode, link: url})
           counter += 1;
           if (findUrl.length === counter) {
             resolve(validateArr);

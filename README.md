@@ -353,9 +353,9 @@ si tienes dudas existenciales con respecto a estas decisiones. No existe una
 
 ### API `mdLinks(path, opts)`
 
-- [ ] El módulo exporta una función con la interfaz (API) esperada.
+- [x] El módulo exporta una función con la interfaz (API) esperada.
 - [x] Implementa soporte para archivo individual
-- [ ] Implementa soporte para directorios
+- [x] Implementa soporte para directorios
 - [x] Implementa `options.validate`
 
 ### Pruebas / tests
