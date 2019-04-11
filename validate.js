@@ -6,10 +6,10 @@ const validateUrls = async (result) => {
 
     result.forEach(element => {
       if (element.status >= 400) {
-        console.log(colors.red(element.status + ' ' + element.link + ' fail ' + 'title: ' + element.text2))
+        console.log(`${colors.red(element.status)}` + ' ' + `${colors.green(element.link)}` + `${colors.red(' fail ')}` + `${colors.cyan('title: ' + element.text2)}`)
         counterFail++;
       } else {
-        console.log(colors.blue(element.status + ' ' + element.link + ' ok ' + 'title: ' + element.text2))
+        console.log(`${colors.cyan(element.status)}` + ' ' + `${colors.green(element.link)}` + `${colors.yellow(' ok ')}` + `${colors.cyan('title: ' + element.text2)}`)
       }
 
     })
