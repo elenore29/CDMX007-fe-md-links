@@ -1,3 +1,50 @@
+# Librería md-links
+
+Está librería tiene como objetivo detectar links rotos en archivos markdown para que los usuarios puedan encontrar los links que no funcionan con mayor rapidez y puedan sustituirlos de forma más eficiente. 
+
+## Diagrama de flujo
+![Diagrama](./images/md_links.png)
+
+## La librería se construyó con las siguientes herramientas:
+
+- ES6+
+- node.js
+- File System (módulo de node.js)
+- https.get (módulo de node.js)
+- http.get (módulo de node.js)
+- [colors](https://www.npmjs.com/package/color)
+- RegEX
+- module.exports
+- Línea de comando CLI
+- [ESLint](https://eslint.org/docs/user-guide/getting-started)
+- Jest (pruebas unitarias)
+
+## Guía de uso e instalación de la librería 
+
+Para instalar la librería utiliza el siguiente comando:
+`npm install --global <github-user>/md-links`
+Debes tener instalado node de forma global para poder ejecutar la instalación de md-links. 
+
+Para usar la librería debes usar el comando md-links y la ruta del archivo .md que quieres escanear, escribe ./ para escanear todos los archivos .md que tengas en el directorio.
+Ejemplo:
+`md-links ./README.md`
+Con este comando obtendrás una lista con los links que contiene(n) el/los archivo(s) .md y el título.
+
+![Ejemplo](./images/path.png)
+
+Para validar los links usa el comando --validate con el cual obtendrás una lista de los links con su status. Los links rotos aparecerán con su status en color rojo y la palabra fail, mientras que los links que estén en buen estado aparecerán con su status en color cyan y la palabra ok en amarillo.
+Ejemplo:
+`md-links ./README.md --validate`
+![Ejemplo](./images/validate.png)
+
+
+Para obtener el total de links, y la cantidad de links rotos utiliza el comando --stats.
+Ejemplo:
+`md links ./README.md --validate --stats`
+![Ejemplo](./images/stats.png)
+
+------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+
 # Markdown Links
 
 ## Preámbulo
@@ -348,8 +395,8 @@ si tienes dudas existenciales con respecto a estas decisiones. No existe una
 
 - [ ] Colocar el pseudo código o diagrama de flujo con el algoritmo que soluciona el problema.
 - [x] Un board con el backlog para la implementación de la librería.
-- [ ] Documentación técnica de la librería.
-- [ ] Guía de uso e instalación de la librería
+- [x] Documentación técnica de la librería.
+- [x] Guía de uso e instalación de la librería
 
 ### API `mdLinks(path, opts)`
 

@@ -25,6 +25,10 @@
   },
   "homepage": "https://github.com/elenore29/CDMX007-fe-md-links#readme",
   "devDependencies": {
+    "eslint": "^5.16.0",
     "jest": "^24.6.0"
+  },
+  "dependencies": {
+    "colors": "^1.3.3"
   }
 }
